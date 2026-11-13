@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Асылбек Кожахметов, ИИ-интегратор из Алматы</title>
-<meta name="description" content="Асылбек Кожахметов внедряет ИИ в малый и средний бизнес. Кейсы TSG OS, Aua, AI департамент и Marat, статьи, резюме и контакты.">
+<meta name="description" content="Асылбек Кожахметов внедряет ИИ в малый и средний бизнес. Кейсы TSG OS, AI департамент, Запрос во Вселенную и Жайлау FM, статьи, резюме и контакты.">
 <meta name="author" content="Асылбек Кожахметов">
 <meta name="theme-color" content="#efeeeb">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -720,6 +720,25 @@ textarea.input{height:auto;min-height:148px;padding:13px 15px;resize:vertical;li
 @media (hover:none){
   .wgo{opacity:1;transform:none}
 }
+/* booking + lock */
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:28px 48px;padding:clamp(24px,4vw,48px);border-radius:var(--r-xl);background:var(--sunk);box-shadow:inset 0 0 0 1px var(--line)}
+.book .lead{margin-top:12px;max-width:40ch}
+.book-days,.book-slots{display:flex;flex-wrap:wrap;gap:8px}
+.book-slots{margin-top:14px}
+.book-days .chip{height:auto;padding:8px 14px;flex-direction:column;align-items:flex-start;line-height:1.2}
+.book-days .chip small{font-size:12px;opacity:.7;font-weight:500}
+.book-slots .chip{font-variant-numeric:tabular-nums}
+.book-form{margin-top:18px;display:grid;gap:10px}
+.book-form .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.book-note{font-size:13px;color:var(--ink-3,var(--ink-2));margin-top:4px}
+.book-pick{font-weight:600}
+@media (max-width:860px){.book{grid-template-columns:minmax(0,1fr)}.book-form .row{grid-template-columns:minmax(0,1fr)}}
+.lockdlg{border:0;padding:0;border-radius:var(--r-lg);background:var(--panel);color:var(--ink);box-shadow:var(--sh-1),0 30px 80px -20px rgb(0 0 0 / .35);width:min(360px,calc(100vw - 32px))}
+.lockdlg::backdrop{background:rgb(20 19 17 / .45)}
+.lockdlg form{padding:24px;display:grid;gap:12px}
+.lockdlg h2{font-size:18px;margin:0}
+.lockdlg .err{color:#b23b37;font-size:13px;margin:0}
+.lockdlg .acts{display:flex;gap:8px;justify-content:flex-end}
 </style>
 </head>
 <body>
@@ -763,10 +782,10 @@ textarea.input{height:auto;min-height:148px;padding:13px 15px;resize:vertical;li
       <p class="side-label">Ещё</p>
       <ul class="elsewhere">
         <li><a href="https://wa.me/77006299307?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D1%81%D1%8B%D0%BB%D0%B1%D0%B5%D0%BA" rel="noopener"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z"/><path d="M9 10a4 4 0 0 0 5 5l1.5-1-2-1.5-1 .8a2.5 2.5 0 0 1-1.8-1.8l.8-1L10 8.5z"/></svg>WhatsApp</a></li>
-        <li><a href="https://koleso-balansa-production.up.railway.app/pult" rel="noopener"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>Пульт</a></li>
-        <li><a href="https://www.notion.so/4049526b61298122b243dcb0e6f76f49" rel="noopener"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 8v8M9 8l6 8M15 8v8"/></svg>Notion: мой план</a></li>
+        <li><a href="#" data-lock="https://koleso-balansa-production.up.railway.app/pult" aria-haspopup="dialog"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>Пульт</a></li>
+        <li><a href="#" data-lock="https://www.notion.so/4049526b61298122b243dcb0e6f76f49" aria-haspopup="dialog"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 8v8M9 8l6 8M15 8v8"/></svg>Notion: мой план</a></li>
         <li><a href="#/writing"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>Статьи</a></li>
-        <li><a href="https://www.youtube.com/" data-demo-link><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>YouTube<svg class="ic ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg></a></li>
+        <li><a href="https://www.youtube.com/@kapitan_omerika" target="_blank" rel="noopener"><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>YouTube<svg class="ic ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg></a></li>
         <li><button type="button" data-copy-email><svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>assylbek.ussa@gmail.com<svg class="ic ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="13" height="13" x="9" y="9" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></li>
       </ul>
     </div>
@@ -833,7 +852,7 @@ textarea.input{height:auto;min-height:148px;padding:13px 15px;resize:vertical;li
               <h2>Ещё</h2>
               <ul>
                 <li><a href="#/writing"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>Статьи</a></li>
-                <li><a href="https://www.youtube.com/" data-demo-link><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>YouTube-канал</a></li>
+                <li><a href="https://www.youtube.com/@kapitan_omerika" target="_blank" rel="noopener"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>YouTube-канал</a></li>
                 <li><button type="button" data-copy-email><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>Скопировать почту</button></li>
               </ul>
             </div>
@@ -875,15 +894,20 @@ var IMG = {
   tsgTendersAi:  ['images/tsg-tenders-ai.webp', 1440, 900],
   tsgAppSv:      ['images/tsg-app-sv.webp', 780, 1688],
   tsgAppCleaner: ['images/tsg-app-cleaner.webp', 780, 1688],
-  auaCover:      ['images/aua-cover.svg', 1600, 1000],
-  auaCrm:        ['images/aua-crm.svg', 1600, 1000],
-  auaPlan:       ['images/aua-plan.svg', 1600, 1000],
   aiCover:       ['images/ai-cover.svg', 1600, 1000],
   aiWhatsapp:    ['images/ai-whatsapp.svg', 1600, 1000],
   aiPlugin:      ['images/ai-plugin.svg', 1600, 1000],
-  maratCover:    ['images/marat-cover.svg', 1600, 1000],
-  maratSessions: ['images/marat-sessions.svg', 1600, 1000],
-  maratMembers:  ['images/marat-members.svg', 1600, 1000]
+  aidHero:       ['images/aid-hero.webp', 1440, 900],
+  aidStaff:      ['images/aid-staff.webp', 1440, 900],
+  aidCatalog:    ['images/aid-catalog.webp', 1440, 900],
+  aidPrices:     ['images/aid-prices.webp', 1440, 900],
+  aidMobile:     ['images/aid-mobile.webp', 780, 1688],
+  wishList:      ['images/wish-list.webp', 1440, 900],
+  wishSky:       ['images/wish-sky.webp', 1440, 900],
+  wishMobile:    ['images/wish-mobile.webp', 780, 1688],
+  zfmDesk:       ['images/zfm-desk.webp', 1440, 900],
+  zfmPractice:   ['images/zfm-practice.webp', 1440, 900],
+  zfmMobile:     ['images/zfm-mobile.webp', 780, 1688]
 };
 
 var SITE = {
@@ -934,94 +958,94 @@ var PROJECTS = [
     credits: 'Вместе с директором Top Service Group и руководителями отделов.'
   },
   {
-    slug: 'aua', name: 'Aua', year: '2026', type: 'venture', typeLabel: 'Свой проект', sector: 'Аромамаркетинг',
-    disc: ['growth', 'product'], tint: '#ece3d6',
-    cover: 'auaCover', coverAlt: 'Сайт Aua: подбор аромата для офиса и абонемент на обслуживание.',
-    oneLiner: 'Ароматизация офисов и бизнес-центров по абонементу. Aua по-казахски значит «воздух».',
-    outcome: 'Ароматизация как доп. услуга Top Service Group',
-    meta: [['Роль', 'Основатель'], ['Клиенты', 'Офисы и бизнес-центры Алматы'], ['Сроки', 'С осени 2026'], ['Команда', 'Я и техник по обслуживанию'], ['Модель', 'Абонемент: диффузор, картриджи и визиты включены']],
-    stats: [{ n: 5, suf: '', label: 'точек на абонементе: цель первого этапа' }, { n: 3, suf: '', label: 'тарифа: ресепшн, офис и бизнес-центр' }, { n: 14, suf: ' дней', label: 'тестового периода для нового клиента' }],
-    statsNote: 'Цели первого этапа, ноябрь и декабрь 2026.',
-    problem: [
-      'Офисы в Алматы много тратят на ремонт и мебель, но почти не думают о том, как в них пахнет. Ароматизацию обычно продают как разовую покупку диффузора, который через месяц стоит пустой.',
-      'Я хотел сделать это сервисом: клиент не думает о картриджах и заменах, а просто получает приятный воздух в лобби и переговорных.'
-    ],
-    quote: ['Гости первым делом замечают запах, а уже потом ремонт.', 'Управляющий бизнес-центром, первая встреча'],
-    steps: [
-      ['Шаг 1', 'Имя и позиционирование', 'Aua, «воздух» по-казахски. Короткое имя, которое легко сказать вслух на встрече.'],
-      ['Шаг 2', 'Сначала B2B', 'Начинаю с офисов и бизнес-центров, где одна договорённость даёт сразу несколько точек. Массовый рынок позже.'],
-      ['Шаг 3', 'Абонемент вместо продажи', 'Диффузор, картриджи и визит техника в одной цене за точку в месяц.'],
-      ['Шаг 4', 'Тест на 14 дней', 'Новому клиенту ставлю аромат на пробу, чтобы решение принималось по ощущению, а не по каталогу.']
-    ],
-    figure: ['kettle', 'Эмалированный чайник и две чашки на солнечном подоконнике.', 'Подбор аромата начинается с разговора о том, каким должен быть офис.'],
-    shipped: ['Три тарифа: ресепшн, офис и бизнес-центр', 'Подборки ароматов под зоны: лобби, open space, переговорные', 'Таблица точек с графиком обслуживания', 'Тестовый период 14 дней для новых клиентов'],
-    gallery: [
-      ['auaCrm', 'Все точки в одном списке: кто на абонементе, кто на тесте, с кем идут переговоры.', 'Экран со списком точек Aua и их статусами.'],
-      ['auaPlan', 'Тарифы считаются за точку в месяц, обслуживание включено.', 'Экран с тремя тарифами Aua.']
-    ],
-    results: ['Было: диффузор как разовая покупка, через месяц стоит пустой. Стало: абонемент с визитами, картриджами и заменой, клиент ни о чём не думает.', 'Aua остаётся подработкой. Следующий шаг: разобраться с концентратами и поставщиком и добавить ароматизацию доп. услугой к уборке Top Service Group, чтобы продавать её действующим клиентам.'],
-    decision: ['Сложное решение: не основной бизнес', 'Было соблазнительно сделать Aua главным проектом. Я решил держать его подработкой, а главный доход строить на внедрении ИИ. Так Aua растёт без давления, а у меня остаётся фокус.'],
-    credits: 'Проект в работе. Цифры и тарифы уточняются по мере первых продаж.'
-  },
-  {
     slug: 'ai-department', name: 'AI департамент', year: '2026', type: 'venture', typeLabel: 'Свой проект', sector: 'ИИ для МСБ',
-    disc: ['ai', 'growth'], tint: '#dfe5ef',
-    cover: 'aiCover', coverAlt: 'Сайт AI департамента: четыре уровня услуг от бесплатного аудита до внедрения под ключ.',
-    oneLiner: 'Сервис, через который малый и средний бизнес внедряет ИИ: бесплатные решения, Telegram-канал с апдейтами за $10, паки под ниши и внедрение под ключ от $1500.',
-    outcome: 'Бесплатно → канал за $10 → паки под ниши → под ключ',
-    meta: [['Роль', 'Основатель, ИИ-интегратор'], ['Клиенты', 'Малый и средний бизнес Казахстана'], ['Сроки', 'MVP в первом квартале 2027'], ['Команда', 'Я, дальше подрядчики'], ['Платформа', 'Плагин для Claude, облачный сервис, WhatsApp']],
-    stats: [{ n: 10, suf: ' $', label: 'в месяц стоит Telegram-канал со свежими апдейтами и общением' }, { n: 1500, suf: ' $', label: 'стартовая цена внедрения под ключ' }, { n: 3, suf: '', label: 'первые паки: салоны красоты, стройка, кафе' }],
-    statsNote: 'Модель на старте. Цены уточняются после первых клиентов.',
+    disc: ['ai', 'growth'], tint: '#f4edc9', site: 'https://aidepartament.com',
+    cover: 'aidHero', coverAlt: 'Первый экран aidepartament.com: «ИИ-отдел для вашего бизнеса. Посмотрите в деле» и шесть бесплатных демо задач.',
+    oneLiner: 'Каталог готовых навыков для Claude под бизнес Казахстана: ответы на отзывы в 2ГИС, КП, контент, деньги и команда. На русском и казахском, оплата в тенге через Kaspi.',
+    outcome: 'Сайт запущен: 560 навыков, 8 ИИ-сотрудников, подписка',
+    meta: [['Роль', 'Основатель, ИИ-интегратор'], ['Клиенты', 'Малый бизнес Казахстана: салоны, кафе, клиники, магазины на Kaspi, клининг, СТО'], ['Сроки', 'Сайт запущен в ноябре 2026'], ['Команда', 'Я и Claude'], ['Платформа', 'Сайт на трёх языках, кабинет, Telegram-бот, навыки для Claude']],
+    stats: [{ n: 560, suf: '', label: 'навыков в каталоге, разложены по 9 разделам' }, { n: 8, suf: '', label: 'ИИ-сотрудников: готовые пакеты навыков под роль' }, { n: 4990, suf: ' ₸', label: 'в месяц стоит подписка на весь каталог' }],
+    statsNote: 'Состояние сайта на ноябрь 2026.',
     problem: [
       'Владельцы малого бизнеса слышат про ИИ каждый день, но не понимают, с чего начать. Консультанты продают дорогие проекты, а бесплатные советы из интернета не доводят до работающего решения.',
       'При этом многие задачи у всех одинаковые: ответить клиенту в WhatsApp ночью, собрать утреннюю сводку, сделать КП и смету, разобрать документы.'
     ],
     quote: ['Мне не нужна лекция про нейросети. Мне нужно, чтобы заявки ночью не пропадали.', 'Владелец кафе, разговор о задачах'],
     steps: [
-      ['Шаг 1', 'Бесплатный вход', 'Аудит из 10 вопросов и три решения, которые владелец ставит сам за 15 минут.'],
-      ['Шаг 2', 'Канал за $10', 'Закрытый Telegram-канал: свежие апдейты ИИ, рабочие скиллы и общение с предпринимателями, которые внедряют ИИ.'],
-      ['Шаг 3', 'Паки под ниши', 'Готовые решения для салонов красоты, стройки, кафе и других сфер, проверенные на реальном бизнесе.'],
-      ['Шаг 4', 'Под ключ', 'Сам прихожу, провожу аудит, подключаю CRM и обучаю команду.']
+      ['Шаг 1', 'Бесплатное демо', 'Шесть задач можно попробовать прямо на сайте без регистрации: ответ на отзыв, злая жалоба, КП за минуту, ответы в директ, сторис и контент-план.'],
+      ['Шаг 2', 'Подборщик', 'Опрос из трёх шагов подбирает три навыка под сферу бизнеса. Готовые подборки есть для 24 сфер.'],
+      ['Шаг 3', 'Навык, пак или подписка', 'Навык 490 ₸ навсегда, пак из 5-7 навыков 1 490 ₸, весь каталог по подписке 4 990 ₸ в месяц. Оплата переводом на Kaspi.'],
+      ['Шаг 4', 'Под ключ', 'Свой навык от 5 000 ₸, настройка от 15 000 ₸, внедрение для компании от 150 000 ₸ и обучение команды.']
     ],
     figure: ['notebook', 'Открытый блокнот с карандашными схемами экранов.', 'Каждое решение сначала описывается на бумаге: для кого оно и что должно случиться.'],
-    shipped: ['Telegram-канал с апдейтами и рабочими скиллами', 'Тайный покупатель: аудит сервиса для кафе и магазинов', 'Бот для записи на встречу', 'Плагин для Claude с командами для аудита и ответчика в WhatsApp', 'Облачный сервис, где боты работают круглосуточно', 'Веб-кабинет для тех, у кого нет подписки на Claude', 'Кейс TSG OS как живой пример внедрения'],
+    shipped: ['Сайт aidepartament.com на русском, казахском и английском', 'Каталог из 560 навыков с поиском по задаче', '8 ИИ-сотрудников: продажи, маркетинг, отзывы, бухгалтерия, HR, документы и другие', 'Бесплатные демо шести задач без регистрации', 'Подборщик навыков под сферу бизнеса', 'Telegram-бот с бесплатным навыком «Профиль бизнеса»', 'Кабинет покупателя и оплата через Kaspi'],
     gallery: [
-      ['aiWhatsapp', 'ИИ-ответчик в WhatsApp и аудит: где бизнес теряет заявки.', 'Телефон с перепиской в WhatsApp рядом с экраном аудита.'],
-      ['aiPlugin', 'Команды плагина: каждое решение настраивается по шагам.', 'Экран со списком команд плагина AI департамент.']
+      ['aidStaff', 'ИИ-сотрудники: каждая роль это пак навыков за 1 490 ₸, часть задач выполняется по расписанию.', 'Раздел «Наймите ИИ-сотрудника» с карточками ролей.'],
+      ['aidCatalog', 'Каталог: 560 навыков в 9 разделах и поиск по задаче, например «отзыв», «КП» или «Kaspi».', 'Раздел каталога навыков.'],
+      ['aidPrices', 'Цены в тенге: навык навсегда, подписка на всё и пак под одну задачу.', 'Раздел «Сколько стоит» с тремя тарифами.'],
+      ['aidMobile', 'На телефоне демо задачи открывается одним нажатием.', 'Первый экран сайта на телефоне.']
     ],
-    results: ['Было: владелец слышит про ИИ каждый день, но первый шаг стоит как проект у консультантов. Стало: вход бесплатный, канал за $10, паки под ниши, под ключ от $1500.', 'Как начать: напишите в WhatsApp, за 30 минут поймём, где ИИ окупится первым, и соберём одно решение от и до.', 'Модель и первое решение готовы на бумаге, запуск MVP запланирован после первого этапа TSG OS. Первые клиенты: 2-3 владельца из сообщества Marat, чтобы проверить, смогут ли они настроить решение сами.'],
-    decision: ['Сложное решение: одно решение вместо пяти', 'Хотелось сразу показать всё: ответчик, сводки, продажи и документы. Я решил начать с одного решения от и до, с ИИ-ответчика в WhatsApp, потому что одно работающее лучше пяти сырых.'],
-    credits: 'Проект на этапе MVP. Цифры в уровнях услуг черновые.'
+    results: ['Было: модель из четырёх уровней на бумаге. Стало: работающий сайт, где владелец сначала видит навык в деле на живом примере, а потом покупает его за 490 ₸.', 'Почему Claude: навыки там доступны на обычном тарифе, а не только на корпоративном. Всё адаптировано под Казахстан: Kaspi, 2ГИС, налоги, русский и казахский.', 'Как начать: откройте сайт и попробуйте любую из шести задач бесплатно, или напишите в WhatsApp, подберём навыки под ваш бизнес.'],
+    decision: ['Сложное решение: показать, а не рассказать', 'Вместо лекции про ИИ первый экран сразу даёт попробовать навык на реальном примере, бесплатно и без регистрации. Владелец верит результату, а не обещаниям.'],
+    credits: 'Цены и число навыков на ноябрь 2026. Claude это продукт Anthropic, AI департамент с ним не связан.'
   },
   {
-    slug: 'marat', name: 'Marat', year: '2026', type: 'community', typeLabel: 'Сообщество', sector: 'Предприниматели Алматы',
-    disc: ['community', 'growth'], tint: '#e6e1ef',
-    cover: 'maratCover', coverAlt: 'Сайт Marat: четыре направления сообщества и ближайшая встреча.',
-    oneLiner: 'Экосистема для предпринимателей Алматы: Marat News, бизнес-клуб со спикерскими сессиями и мастер-классами, курс для бизнеса и Marat Job, рейтинг работодателей и сотрудников.',
-    outcome: 'Еженедельные встречи с сентября 2026',
-    meta: [['Роль', 'Основатель и модератор'], ['Участники', 'Владельцы бизнеса, ИП и люди с опытом запуска'], ['Сроки', 'С сентября 2026, клуб в полную силу с января 2027'], ['Формат', 'Обмен опытом, спикерские сессии, мастер-классы'], ['Направления', 'News, Business Club, курс для бизнеса, Job']],
-    stats: [{ n: 120, suf: ' мин', label: 'длится встреча: 3-4 кейса участников' }, { n: 50000, suf: ' ₸', label: 'в месяц стоит участие в клубе Business' }, { n: 30, suf: '+', label: 'участников: цель роста клуба' }],
-    statsNote: 'Формат и цены на октябрь 2026.',
+    slug: 'zapros-vo-vselennuyu', name: 'Запрос во Вселенную', year: '2026', type: 'venture', typeLabel: 'Свой проект', sector: 'Взаимопомощь',
+    disc: ['product', 'community'], tint: '#1c2346', site: 'https://zhelaniya.up.railway.app',
+    cover: 'wishList', coverAlt: 'Сайт «Запрос во Вселенную»: список запросов, кто просит, через кого Вселенная ответила и статус.',
+    oneLiner: 'Сайт, где человек отправляет запрос во Вселенную, а отвечает на него другой человек. Раньше назывался «ЖЕЛАНИЯ!».',
+    outcome: 'Работает: вход через Google, Telegram-бот, три языка',
+    meta: [['Роль', 'Автор идеи, продукт, разработка вместе с Claude'], ['Для кого', 'Те, кто хочет попросить о помощи, и те, кто готов помочь'], ['Сроки', 'Осень 2026'], ['Команда', 'Я и Claude'], ['Платформа', 'Веб-приложение, Telegram-бот, RU / EN / KZ']],
+    stats: [{ n: 3, suf: '', label: 'языка: русский, английский и казахский' }, { n: 3, suf: '', label: 'статуса запроса: отправлен, услышан, исполнен' }, { n: 1, suf: ' клик', label: 'чтобы войти: через Google, без отдельной регистрации' }],
+    statsNote: 'Цифры описывают устройство сайта, а не аудиторию.',
     problem: [
-      'Предпринимателю в Алматы не с кем честно обсудить свои решения. Друзья не в теме, конкуренты не скажут правду, а платные курсы рассказывают общие вещи.',
-      'Нужно было место, где равные разбирают реальные кейсы друг друга по понятным правилам.'
+      'Часто человеку нужно что-то простое: напарник для утренних пробежек, книга в подарок, помощь с первым резюме. Просить вслух неловко, а тех, кто готов помочь, много, просто они не знают, кому.',
+      'Идея пришла из фильма «Брюс Всемогущий»: что если ответить на чужую просьбу может обычный человек?'
     ],
-    quote: ['Впервые обсудил проблему в бизнесе и не услышал «просто делай больше».', 'Участник клуба после встречи'],
     steps: [
-      ['Сентябрь', 'Первая встреча', '18 сентября прошла первая встреча. Каждый говорит о своём опыте, без директивных советов.'],
-      ['Сентябрь', 'Правила', 'Конфиденциальность, «я-сообщения» вместо советов, 3-4 кейса за вечер и строгие 120 минут.'],
-      ['Октябрь', 'Экосистема', 'Community бесплатно, Business платно, University для обучения сотрудников, Job для честных оценок.'],
-      ['Дальше', 'Спикеры', 'Платные сессии с гостями в конференц-залах и рост до 30+ участников.']
+      ['Шаг 1', 'ЖЕЛАНИЯ!', 'Первая версия: загадай желание, и, может быть, кто-то его исполнит. Таблица желаний и счётчик.'],
+      ['Шаг 2', 'Вход и контакты', 'Вход через Google. У исполнителя есть Telegram или телефон, чтобы с ним можно было связаться.'],
+      ['Шаг 3', 'Несколько исполнителей', 'Один запрос могут взять сразу несколько человек, а исполненный подтверждается ссылкой.'],
+      ['Шаг 4', 'Новая упаковка', 'Переименовал в «Запрос во Вселенную»: небо из звёзд, знак дня, звук Вселенной и бот в Telegram.']
     ],
-    figure: ['studio', 'Рабочий стол у высокого окна с эскизами на стене.', 'Подготовка к сессии: кейсы участников и вопросы к ним.'],
-    shipped: ['Еженедельные встречи с разбором кейсов', 'Правила клуба: конфиденциальность и уважение к опыту', 'Четыре направления: Community, Business, University, Job', 'Сайт с профилями участников и заявкой на коллаборацию'],
+    figure: ['envelopes', 'Стопка конвертов и телефон экраном вниз на кухонном столе.', 'Каждый запрос как письмо: кто-то обязательно его откроет.'],
+    shipped: ['Небо запросов: каждая звезда это чей-то запрос', 'Список с тремя статусами: отправлен, услышан, исполнен', 'Кнопка «Стать знаком», чтобы взять запрос на себя', 'Вход через Google и контакты в Telegram', 'Telegram-бот: сообщает «Вселенная ответила!», присылает знак дня, работает в групповых чатах', 'Знак дня на главной', 'Три языка: русский, английский, казахский'],
     gallery: [
-      ['maratSessions', 'Темы сессий: от внедрения ИИ до тендеров для малого бизнеса.', 'Экран со списком сессий сообщества.'],
-      ['maratMembers', 'Участники из разных сфер, у каждого действующий бизнес или опыт запуска.', 'Экран с карточками участников по сферам.']
+      ['wishSky', 'Небо запросов: белые звёзды отправлены, фиолетовые услышаны, золотые исполнены.', 'Экран с небом запросов.'],
+      ['wishMobile', 'На телефоне: отправить запрос можно одной кнопкой.', 'Первый экран сайта на телефоне.']
     ],
-    results: ['Было: закрытый клуб со встречами раз в месяц и без системы. Стало: экосистема Marat: новости, бизнес-клуб со спикерами, курс и биржа работы, по раунду на каждое.', 'План по раундам: с января Marat News и Business Club со спикерскими сессиями, весной курс для бизнеса, летом пилот Marat Job. Сообщество внутри AI департамента идёт через платный канал.'],
-    decision: ['Сложное решение: опыт важнее стажа', 'Сначала в клуб брали только тех, у кого бизнес работает больше двух лет. Я поменял правило: достаточно действующего бизнеса или опыта запуска. Так приходят люди с честными историями, в том числе о неудачах.'],
-    credits: 'Сообщество растёт вместе с участниками. Цифры участников в макетах условные.'
+    results: ['Было: сайт ЖЕЛАНИЯ! с простой таблицей. Стало: «Запрос во Вселенную» с небом из звёзд, статусами и ботом, который сообщает, что Вселенная ответила.', 'Дальше: первые реальные запросы и проверка, сколько из них находят своего исполнителя.'],
+    decision: ['Сложное решение: вход только через Google', 'Анонимно просить проще, но тогда исполнителю не с кем связаться, а запросы легко засорить. Поэтому за каждым запросом стоит реальный аккаунт и контакт для связи.'],
+    credits: 'Сделано вместе с Claude. На скриншотах тестовые данные.'
+  },
+  {
+    slug: 'zhailau-fm', name: 'Жайлау FM', year: '2026', type: 'venture', typeLabel: 'Свой проект', sector: 'Спокойствие и сон',
+    disc: ['product'], tint: '#efe8dd', site: 'https://zhaylaufm.up.railway.app',
+    cover: 'zfmDesk', coverAlt: 'Жайлау FM: большая кнопка воспроизведения, волны Утро, Фокус, Покой и Сон, голосовые практики.',
+    oneLiner: 'Веб-радио для спокойного утра, фокуса и сна: одна кнопка, четыре волны и короткие голосовые практики.',
+    outcome: 'Работает: 4 волны, голосовые практики, таймер сна',
+    meta: [['Роль', 'Автор, продукт, разработка вместе с Claude'], ['Для кого', 'Тем, кому нужно успокоиться, сосредоточиться или уснуть'], ['Сроки', 'Ноябрь 2026'], ['Команда', 'Я и Claude'], ['Платформа', 'Веб-приложение, ставится на телефон как приложение']],
+    stats: [{ n: 4, suf: '', label: 'волны: Утро, Фокус, Покой и Сон' }, { n: 3, suf: '', label: 'голосовые практики на 5-10 минут' }, { n: 1, suf: '', label: 'кнопка, и заиграет' }],
+    statsNote: 'Цифры описывают устройство радио.',
+    problem: [
+      'Когда накрывает тревога или не получается уснуть, меньше всего хочется листать плейлисты и выбирать. Приложения для медитации просят регистрацию и подписку ещё до первого вдоха.',
+      'Хотелось как у радио: нажал, и заиграло то, что нужно сейчас.'
+    ],
+    steps: [
+      ['Шаг 1', 'Одна кнопка', 'Главный экран: большая кнопка «Слушать эфир». Волна сама подбирается под время суток.'],
+      ['Шаг 2', 'Четыре волны', 'Утро, Фокус, Покой и Сон, переключаются одним касанием. Есть таймер сна.'],
+      ['Шаг 3', 'Голос поверх музыки', 'Практики: дыхание за 5 минут, пауза от тревоги и засыпание с телефоном экраном вниз.'],
+      ['Шаг 4', 'Ещё радио и природа', 'Business FM Казахстан в прямом эфире и часовые видео природы: Чарын, Алтын-Эмель, Тянь-Шань.']
+    ],
+    figure: ['kettle', 'Эмалированный чайник и две чашки на солнечном подоконнике.', 'Утренняя волна для тихого начала дня.'],
+    shipped: ['Радио с четырьмя волнами под время суток', 'Таймер сна', 'Голосовые практики: дыхание, пауза от тревоги, засыпание', 'Заметки для себя', 'Business FM Казахстан в прямом эфире', 'Окно в природу: часовые видео Казахстана и Кыргызстана', 'Ставится на телефон как приложение'],
+    gallery: [
+      ['zfmPractice', 'Практики голосом, второе радио и «Окно в природу».', 'Раздел практик, Business FM и видео природы.'],
+      ['zfmMobile', 'На телефоне ночью включается волна «Сон», кнопка на пол-экрана.', 'Экран Жайлау FM на телефоне.']
+    ],
+    results: ['Было: чтобы успокоиться, нужно выбрать приложение, плейлист и медитацию. Стало: одна кнопка, и играет то, что подходит по времени суток.', 'Жайлау FM для отдыха и настроя, а не для лечения. В экстренной ситуации звоните 112.'],
+    decision: ['Сложное решение: меньше выбора', 'Вместо каталога из сотни треков четыре волны и одна кнопка. Когда человеку тревожно, выбор только мешает.'],
+    credits: 'Сделано вместе с Claude. Музыка с Pixabay по лицензии Pixabay Content License.'
   }
 ];
 
@@ -1032,10 +1056,6 @@ var ARCHIVE = [
   ['2027', 'Акселератор', 'Конкурс бизнес-идей для студентов и школьников: призы деньгами и стажировками', 'В планах'],
   ['2027', 'The People', 'Журнал и портал с интервью предпринимателей, можно в печати', 'В планах'],
   ['2027', 'ReCompany', 'Площадка по продаже готового бизнеса', 'В планах'],
-  ['2026', 'ЖЕЛАНИЯ!', 'Сайт, где люди загадывают желания, а другие их исполняют', 'Допиливаю'],
-  ['2026', 'Tap Taza', 'Мобильная бригада и интеграция с Халык Банком', 'Готовлю к продаже'],
-  ['2026', 'Найми', 'Цифровизация найма и перенос бота в WhatsApp', 'Клиентский проект'],
-  ['2026', 'Тамга', 'Платформа транзитной авторекламы в Казахстане', 'На паузе'],
   ['2026', 'Угости', 'Telegram Mini App для подарочных сертификатов кафе', 'На паузе']
 ];
 
@@ -1225,6 +1245,104 @@ var FAQ = [
       '<div><h3>' + p.title + '</h3><p>' + p.standfirst + '</p><div class="meta">' + tagList(p.tags) + '<span>' + p.read + ' мин чтения</span></div></div>' +
       '<div class="thumb">' + pic(p.img, '') + '</div></a></li>';
   }
+
+  /* Созвон 30 минут: выбор дня и времени (Алматы), заявка уходит в WhatsApp */
+  var BOOK = { day: null, slot: null };
+  var BK_TIMES = ['11:00', '11:30', '12:00', '12:30', '14:00', '14:30', '15:00', '15:30'];
+  function almatyNow() { var d = new Date(); return new Date(d.getTime() + d.getTimezoneOffset() * 60000 + 5 * 3600000); }
+  function bookDays() {
+    var now = almatyNow(), out = [], d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var WD = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'], MO = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+    while (out.length < 8) {
+      var w = d.getDay();
+      if (w > 0 && w < 6) {
+        var key = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+        var slots = BK_TIMES.filter(function (t) { if (out.length || d.getDate() !== now.getDate()) return true; var hm = t.split(':'); return (+hm[0]) * 60 + (+hm[1]) > now.getHours() * 60 + now.getMinutes() + 120; });
+        if (slots.length) out.push({ key: key, wd: WD[w], label: d.getDate() + ' ' + MO[d.getMonth()], slots: slots });
+      }
+      d.setDate(d.getDate() + 1);
+    }
+    return out;
+  }
+  function bookSlotsHtml() {
+    var days = bookDays(), day = days.filter(function (x) { return x.key === BOOK.day; })[0] || days[0];
+    BOOK.day = day.key;
+    return day.slots.map(function (t) { return '<button class="chip" type="button" data-bk-slot="' + t + '" aria-pressed="' + (BOOK.slot === t) + '">' + t + '</button>'; }).join('');
+  }
+  function bookPickText() {
+    var day = bookDays().filter(function (x) { return x.key === BOOK.day; })[0];
+    return BOOK.slot && day ? day.wd + ', ' + day.label + ', ' + BOOK.slot : '';
+  }
+  function bookCall() {
+    var days = bookDays(); if (!BOOK.day && days.length) BOOK.day = days[0].key;
+    return '<section class="wrap sec" aria-labelledby="bk-title"><div class="book rv">' +
+      '<div><h2 class="h2 ink" id="bk-title">Созвон на 30 минут</h2>' +
+      '<p class="lead">Разберём вашу задачу и поймём, где ИИ окупится первым. Бесплатно, в Zoom, Google Meet или WhatsApp.</p>' +
+      '<p class="book-note">Время по Алматы (UTC+5). Подтвержу в WhatsApp в течение дня.</p></div>' +
+      '<div><p class="field" style="margin-top:0"><span style="font-size:14px;font-weight:600">День</span></p>' +
+      '<div class="book-days" role="group" aria-label="День">' + days.map(function (d) { return '<button class="chip" type="button" data-bk-day="' + d.key + '" aria-pressed="' + (d.key === BOOK.day) + '">' + d.label + '<small>' + d.wd + '</small></button>'; }).join('') + '</div>' +
+      '<div class="book-slots" role="group" aria-label="Время" id="bk-slots">' + bookSlotsHtml() + '</div>' +
+      '<form class="book-form" data-bk-form novalidate><div class="row">' +
+      '<label class="sr-only" for="bk-name">Имя</label><input class="input" id="bk-name" name="name" autocomplete="name" placeholder="Как вас зовут">' +
+      '<label class="sr-only" for="bk-topic">Тема</label><input class="input" id="bk-topic" name="topic" placeholder="Тема, например «бот для заявок»"></div>' +
+      '<p class="book-note" id="bk-pick" aria-live="polite">' + (bookPickText() ? 'Вы выбрали: <span class="book-pick">' + bookPickText() + '</span>' : 'Выберите время.') + '</p>' +
+      '<div><button class="btn btn-dark" type="submit" data-bk-go>Записаться через WhatsApp' + ic('arrowRight', 16, 2) + '</button></div></form></div>' +
+      '</div></section>';
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('[data-bk-day],[data-bk-slot]'); if (!t) return;
+    if (t.hasAttribute('data-bk-day')) {
+      BOOK.day = t.getAttribute('data-bk-day'); BOOK.slot = null;
+      $$('[data-bk-day]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === t)); });
+      var box = document.getElementById('bk-slots'); if (box) box.innerHTML = bookSlotsHtml();
+    } else {
+      BOOK.slot = t.getAttribute('data-bk-slot');
+      $$('[data-bk-slot]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === t)); });
+    }
+    var pk = document.getElementById('bk-pick'); if (pk) pk.innerHTML = bookPickText() ? 'Вы выбрали: <span class="book-pick">' + bookPickText() + '</span>' : 'Выберите время.';
+  });
+  document.addEventListener('submit', function (e) {
+    var f = e.target; if (!f.hasAttribute || !f.hasAttribute('data-bk-form')) return;
+    e.preventDefault();
+    if (!BOOK.slot) { var pk = document.getElementById('bk-pick'); if (pk) pk.textContent = 'Сначала выберите время.'; return; }
+    var name = (f.name && f.name.value || f.querySelector('#bk-name').value || '').trim(), topic = (f.querySelector('#bk-topic').value || '').trim();
+    var msg = 'Здравствуйте, Асылбек! Хочу записаться на созвон 30 минут: ' + bookPickText() + ' (время Алматы).' + (name ? '\nМеня зовут ' + name + '.' : '') + (topic ? '\nТема: ' + topic + '.' : '');
+    window.open('https://wa.me/' + SITE.whatsapp + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  });
+
+  /* Пульт и Notion открываются по паролю. Это защита от случайных посетителей,
+     а не настоящая авторизация: у самого Пульта остаётся свой PIN. */
+  var LOCK_HASH = '580ade0f132b4228ea4fe1a289f318f2402fdcd2682ed057a3785fed4312f9f3';
+  function sha256(str) { return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function (b) { return Array.prototype.map.call(new Uint8Array(b), function (x) { return ('0' + x.toString(16)).slice(-2); }).join(''); }); }
+  function unlocked() { try { return sessionStorage.getItem('lockok') === '1'; } catch (e) { return false; } }
+  function openLock(url) {
+    if (unlocked()) { window.open(url, '_blank', 'noopener'); return; }
+    var d = document.getElementById('lockdlg');
+    if (!d) {
+      d = document.createElement('dialog'); d.id = 'lockdlg'; d.className = 'lockdlg'; d.setAttribute('aria-labelledby', 'lock-title');
+      d.innerHTML = '<form method="dialog"><h2 id="lock-title">Личный раздел</h2><p class="muted" style="margin:0;font-size:14px">Введите пароль, чтобы открыть.</p>' +
+        '<label class="sr-only" for="lock-pw">Пароль</label><input class="input" id="lock-pw" type="password" inputmode="numeric" autocomplete="off">' +
+        '<p class="err" id="lock-err" hidden>Неверный пароль</p><div class="acts"><button class="btn btn-ghost btn-sm" type="button" value="cancel" data-lock-cancel>Отмена</button><button class="btn btn-dark btn-sm" type="submit" data-lock-ok>Открыть</button></div></form>';
+      document.body.appendChild(d);
+      d.querySelector('[data-lock-cancel]').addEventListener('click', function () { d.close(); });
+      d.querySelector('form').addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var v = d.querySelector('#lock-pw').value.trim();
+        sha256(v).then(function (h) {
+          if (h === LOCK_HASH) { try { sessionStorage.setItem('lockok', '1'); } catch (e) {} d.close(); window.open(d.dataset.url, '_blank', 'noopener'); }
+          else { d.querySelector('#lock-err').hidden = false; d.querySelector('#lock-pw').select(); }
+        });
+      });
+    }
+    d.dataset.url = url; d.querySelector('#lock-err').hidden = true; d.querySelector('#lock-pw').value = '';
+    if (d.showModal) d.showModal(); else d.setAttribute('open', '');
+    setTimeout(function () { d.querySelector('#lock-pw').focus(); }, 30);
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('[data-lock]'); if (!t) return;
+    e.preventDefault(); e.stopPropagation(); openLock(t.getAttribute('data-lock'));
+  }, true);
+
   function newsletter(id) {
     return '<div class="newsletter rv" id="subscribe"><div><h2 class="h2 ink" id="' + id + '-title">Новые статьи на почту</h2>' +
       '<p class="muted">Одна статья в месяц, обычно в воскресенье. Отписаться можно в один клик.</p></div>' +
@@ -1276,8 +1394,9 @@ var FAQ = [
         '<p class="hero-text"' + stag(3) + '>Сейчас строю <span class="mark">TSG OS</span> для клининговой компании на 50 человек, а параллельно запускаю AI департамент и сообщество предпринимателей Marat.</p>' +
       '</section>' +
       nowStrip() +
+      bookCall() +
       /* Selected work: two-column grid, right column offset */
-      '<section class="wrap sec" aria-labelledby="sw-title"><div class="sec-head"><div><h2 class="h2 ink" id="sw-title">Избранные работы</h2><p>Внедрение в компании, два своих проекта и сообщество предпринимателей.</p></div>' +
+      '<section class="wrap sec" aria-labelledby="sw-title"><div class="sec-head"><div><h2 class="h2 ink" id="sw-title">Избранные работы</h2><p>Внедрение ИИ в компании и три своих проекта, которые уже работают.</p></div>' +
         '<a class="link-arrow" href="#/work">Все работы' + ic('arrowRight', 16, 2) + '</a></div>' +
         '<div class="work-grid">' + PROJECTS.map(workCard).join('') + '</div></section>' +
       /* How I can help: sticky heading + capability rows with toolkit chips */
@@ -1304,7 +1423,7 @@ var FAQ = [
   }
 
   function vWork() {
-    var typeChips = [['all', 'Все', PROJECTS.length]].concat(Object.keys(TYPES).map(function (k) { return [k, TYPES[k], PROJECTS.filter(function (p) { return p.type === k; }).length]; }));
+    var typeChips = [['all', 'Все', PROJECTS.length]].concat(Object.keys(TYPES).map(function (k) { return [k, TYPES[k], PROJECTS.filter(function (p) { return p.type === k; }).length]; }).filter(function (c) { return c[2] > 0; }));
     var discChips = [['all', 'Любое направление']].concat(Object.keys(DISC).map(function (k) { return [k, DISC[k]]; }));
     function chips(list) { return list.map(function (c, i) { return '<button class="chip" type="button" data-val="' + c[0] + '" aria-pressed="' + (i === 0) + '">' + c[1] + (c[2] != null ? '<span class="n">' + c[2] + '</span>' : '') + '</button>'; }).join(''); }
     var rows = PROJECTS.map(function (p) {
@@ -1321,7 +1440,7 @@ var FAQ = [
       crumbs: [['Работы']], html:
       '<div class="page"><header class="wrap page-head"><span class="page-glyph"' + stag(0) + '>' + ic('briefcase', 24, 1.7) + '</span>' +
         '<h1 class="h1 ink"' + stag(1) + '>Работы</h1>' +
-        '<p class="lead"' + stag(2) + '>Четыре проекта 2026 года: внедрение ИИ в компании, два своих проекта и сообщество. У каждого есть подробный кейс.</p></header>' +
+        '<p class="lead"' + stag(2) + '>Четыре проекта 2026 года: внедрение ИИ в компании и три своих проекта. У каждого подробный кейс и ссылка на сайт.</p></header>' +
       '<section class="wrap" aria-label="Projects"><div class="filters"' + stag(3) + '>' +
         '<div class="filter-row"><span id="f-type">Тип</span><div class="chip-group" role="group" aria-labelledby="f-type" data-group="type">' + chips(typeChips) + '</div></div>' +
         '<div class="filter-row"><span id="f-disc">Направление</span><div class="chip-group" role="group" aria-labelledby="f-disc" data-group="disc">' + chips(discChips) + '</div></div></div>' +
@@ -1353,13 +1472,14 @@ var FAQ = [
       '<article class="page">' +
       '<header class="wrap case-head"><a class="back-btn" href="#/work" aria-label="Ко всем работам"' + stag(0) + '>' + ic('arrowLeft', 18) + '</a>' +
         '<div><div class="tags"' + stag(1) + '><span class="tag">' + p.typeLabel + '</span><span class="tag">' + p.sector + '</span><span class="tag">' + p.year + '</span></div>' +
-        '<h1 class="h1 ink"' + stag(2) + '>' + p.name + '</h1><p class="case-lead"' + stag(3) + '>' + p.oneLiner + '</p></div>' +
+        '<h1 class="h1 ink"' + stag(2) + '>' + p.name + '</h1><p class="case-lead"' + stag(3) + '>' + p.oneLiner + '</p>' +
+        (p.site ? '<p style="margin-top:20px"><a class="btn btn-ghost btn-sm" href="' + p.site + '" target="_blank" rel="noopener">Открыть сайт' + ic('arrowRight', 16, 2) + '</a></p>' : '') + '</div>' +
         '<dl class="case-meta"' + stag(4) + '>' + p.meta.map(function (m) { return '<div><dt>' + m[0] + '</dt><dd>' + m[1] + '</dd></div>'; }).join('') + '</dl></header>' +
       '<figure class="wrap case-hero"' + stag(5) + '><div class="wmedia" style="--tint:' + p.tint + '">' + pic(p.cover, p.coverAlt, { eager: 1 }) + '</div></figure>' +
       '<section class="wrap" aria-label="Итоги"><div class="stats">' + stats + '</div><p class="stats-note">' + p.statsNote + '</p></section>' +
       '<div class="wrap case-body"><nav class="toc" aria-label="На странице"><p>На странице</p>' + toc.map(function (t) { return '<a href="#' + t[0] + '">' + t[1] + '</a>'; }).join('') + '</nav><div>' +
         '<section class="cs rv" id="cs-problem"><h2 class="h2 ink">Задача</h2>' + p.problem.map(function (t) { return '<p>' + t + '</p>'; }).join('') +
-          '<figure class="pull"><blockquote>“' + p.quote[0] + '”</blockquote><figcaption>' + p.quote[1] + '</figcaption></figure></section>' +
+          (p.quote ? '<figure class="pull"><blockquote>“' + p.quote[0] + '”</blockquote><figcaption>' + p.quote[1] + '</figcaption></figure>' : '') + '</section>' +
         '<section class="cs" id="cs-process"><h2 class="h2 ink rv">Процесс</h2><ol class="steps">' +
           p.steps.map(function (s, i) { return '<li class="step rv" style="--i:' + (i % 2) + '"><span class="when">' + s[0] + '</span><h3>' + s[1] + '</h3><p>' + s[2] + '</p></li>'; }).join('') + '</ol>' +
           '<figure class="fig rv"><div class="wmedia">' + pic(p.figure[0], p.figure[1]) + '</div><figcaption class="cap">' + p.figure[2] + '</figcaption></figure></section>' +
