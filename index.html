@@ -722,7 +722,8 @@ textarea.input{height:auto;min-height:148px;padding:13px 15px;resize:vertical;li
 }
 /* booking + lock */
 .book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:28px 48px;padding:clamp(24px,4vw,48px);border-radius:var(--r-xl);background:var(--sunk);box-shadow:inset 0 0 0 1px var(--line)}
-.book .lead{margin-top:12px;max-width:40ch}
+.book .lead{margin-top:12px;max-width:60ch}
+@media (max-width:600px){.cal-wrap iframe{height:900px!important}}
 .book-days,.book-slots{display:flex;flex-wrap:wrap;gap:8px}
 .book-slots{margin-top:14px}
 .book-days .chip{height:auto;padding:8px 14px;flex-direction:column;align-items:flex-start;line-height:1.2}
@@ -1274,19 +1275,11 @@ var FAQ = [
     return BOOK.slot && day ? day.wd + ', ' + day.label + ', ' + BOOK.slot : '';
   }
   function bookCall() {
-    var days = bookDays(); if (!BOOK.day && days.length) BOOK.day = days[0].key;
-    return '<section class="wrap sec" aria-labelledby="bk-title"><div class="book rv">' +
+    return '<section class="wrap sec" aria-labelledby="bk-title"><div class="book rv" style="grid-template-columns:minmax(0,1fr)">' +
       '<div><h2 class="h2 ink" id="bk-title">Созвон на 30 минут</h2>' +
-      '<p class="lead">Разберём вашу задачу и поймём, где ИИ окупится первым. Бесплатно, в Zoom, Google Meet или WhatsApp.</p>' +
-      '<p class="book-note">Время по Алматы (UTC+5). Подтвержу в WhatsApp в течение дня.</p></div>' +
-      '<div><p class="field" style="margin-top:0"><span style="font-size:14px;font-weight:600">День</span></p>' +
-      '<div class="book-days" role="group" aria-label="День">' + days.map(function (d) { return '<button class="chip" type="button" data-bk-day="' + d.key + '" aria-pressed="' + (d.key === BOOK.day) + '">' + d.label + '<small>' + d.wd + '</small></button>'; }).join('') + '</div>' +
-      '<div class="book-slots" role="group" aria-label="Время" id="bk-slots">' + bookSlotsHtml() + '</div>' +
-      '<form class="book-form" data-bk-form novalidate><div class="row">' +
-      '<label class="sr-only" for="bk-name">Имя</label><input class="input" id="bk-name" name="name" autocomplete="name" placeholder="Как вас зовут">' +
-      '<label class="sr-only" for="bk-topic">Тема</label><input class="input" id="bk-topic" name="topic" placeholder="Тема, например «бот для заявок»"></div>' +
-      '<p class="book-note" id="bk-pick" aria-live="polite">' + (bookPickText() ? 'Вы выбрали: <span class="book-pick">' + bookPickText() + '</span>' : 'Выберите время.') + '</p>' +
-      '<div><button class="btn btn-dark" type="submit" data-bk-go>Записаться через WhatsApp' + ic('arrowRight', 16, 2) + '</button></div></form></div>' +
+      '<p class="lead">Разберём вашу задачу и поймём, где ИИ окупится первым. Бесплатно. Выберите день и время, ссылка на встречу придёт на почту.</p>' +
+      '<p class="book-note">Не открывается календарь? <a href="https://cal.com/assylbek/30min" target="_blank" rel="noopener">Откройте запись в новой вкладке</a> или <a href="https://wa.me/' + SITE.whatsapp + '" target="_blank" rel="noopener">напишите в WhatsApp</a>.</p></div>' +
+      '<div class="cal-wrap"><iframe src="https://cal.com/assylbek/30min?embed=true&layout=month_view" title="Запись на созвон с Асылбеком" loading="lazy" style="width:100%;height:720px;border:0;border-radius:16px;background:var(--panel)"></iframe></div>' +
       '</div></section>';
   }
   document.addEventListener('click', function (e) {
