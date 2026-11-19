@@ -8,4 +8,4 @@
 
 Скрипт открывает каждую страницу в Chromium (Playwright), сохраняет готовый HTML с title, description, canonical и og-тегами и обновляет sitemap.xml. Старые ссылки вида `/#/work/...` автоматически переводятся на `/work/...`.
 
-Книга с перелистыванием (/book/) собирается отдельно: исходник в /home/claude/flip/app (Vite + React), `npx vite build`, потом скопировать dist в папку book/.
+Книга с перелистыванием (/book/) собирается отдельно: исходник в book-src/ (Vite + React, шаблон Biryani Legends от Kedhareswer Naidu, MIT): `cd book-src && npm i && npx vite build`, потом скопировать dist в папку book/.
