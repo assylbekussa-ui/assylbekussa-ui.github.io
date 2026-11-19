@@ -7,3 +7,5 @@
     node tools/build.js
 
 Скрипт открывает каждую страницу в Chromium (Playwright), сохраняет готовый HTML с title, description, canonical и og-тегами и обновляет sitemap.xml. Старые ссылки вида `/#/work/...` автоматически переводятся на `/work/...`.
+
+Книга с перелистыванием (/book/) собирается отдельно: исходник в /home/claude/flip/app (Vite + React), `npx vite build`, потом скопировать dist в папку book/.

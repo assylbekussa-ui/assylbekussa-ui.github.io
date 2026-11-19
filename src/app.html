@@ -1071,6 +1071,7 @@ var POSTS = [
     tags: ['Книга'], img: 'notebook', imgAlt: 'Открытый блокнот с записями и карандаш.', cap: 'Пишу по 15 минут каждый вечер перед сном.',
     standfirst: 'Пишу автобиографическую книгу о мыслях и историях, которые сделали меня тем, кто я есть. Главы появляются здесь по мере написания.',
     body: [
+      ['p', '<p><a class="btn btn-dark" href="/book/" style="text-decoration:none">Открыть как книгу с перелистыванием</a></p>'],
       ['p', 'Главы подгружаются из рукописи. Если текст не появился, обновите страницу через минуту.']
     ]
   },
@@ -2120,7 +2121,7 @@ var FAQ = [
     if (t.tagName === 'A') {
       var href = t.getAttribute('href') || '';
       if (href.indexOf('#/') === 0) { e.preventDefault(); go(parse(href)); return; }
-      if (href.charAt(0) === '/' && href.charAt(1) !== '/' && !/^\/(images|sitemap|robots)/.test(href) && t.getAttribute('target') !== '_blank' && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey) { e.preventDefault(); go(parse(href)); return; }
+      if (href.charAt(0) === '/' && href.charAt(1) !== '/' && !/^\/(images|sitemap|robots|book)/.test(href) && t.getAttribute('target') !== '_blank' && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey) { e.preventDefault(); go(parse(href)); return; }
       if (href.charAt(0) === '#' && href.length > 1) {
         e.preventDefault();
         var el = document.getElementById(href.slice(1));
@@ -2162,7 +2163,7 @@ var FAQ = [
     var b = byId(POSTS, 'kniga'); if (!b || !window.fetch) return;
     fetch('https://koleso-balansa-production.up.railway.app/book').then(function (r) { return r.json(); }).then(function (j) {
       if (!j || !j.ok || !j.chapters || !j.chapters.length) return;
-      var body = [], words = 0;
+      var body = [['p', '<p><a class="btn btn-dark" href="/book/" style="text-decoration:none">Открыть как книгу с перелистыванием</a></p>']], words = 0;
       j.chapters.forEach(function (c) { body.push(['h2', esc(c.title)]); c.paragraphs.forEach(function (t) { words += t.split(/\s+/).length; body.push(['p', esc(t)]); }); });
       body.push(['p', '<em>Книга пишется. Новые главы появляются здесь автоматически.</em>']);
       b.body = body; b.read = Math.max(1, Math.round(words / 180));
